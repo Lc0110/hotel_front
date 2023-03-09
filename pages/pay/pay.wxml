@@ -1,0 +1,10 @@
+<!--pages/pay/pay.wxml-->
+<view class="container">
+<image src="../../images/pay.png" class="pay" mode="widthFix"/>
+<view class="price">¥ {{price}}</view>
+<view class="buttons">
+  <button class="confirm" type="primary" bindtap="confirm">确认支付</button>
+  <button classs="cancel" type="warn" bindtap="cancel">取消支付</button>
+</view>
+
+</view>

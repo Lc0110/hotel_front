@@ -1,0 +1,36 @@
+<!--pages/mine/userinfo/userinfo.wxml-->
+<view class="container">
+  <view class="profile-info">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+    <view class="info">
+      <text class="name">{{nickName}}</text>
+    </view>
+  </view>
+  <view class="base-info">
+    <view class="item-line">
+      <view class="base">基本信息</view>
+      <view class="edit" bindtap="toEditPage" wx:if="{{!isEdit}}">编辑</view>
+    </view>
+    <view class="item-line">
+      <view class="name">姓名</view>
+      <view class="item" wx:if="{{!isEdit}}">{{realname}}</view>
+      <input class="item" wx:if="{{isEdit}}" model:value="{{Ename}}" placeholder="请输入姓名"/>
+    </view>
+    <view class="item-line">
+      <view class="name">联系电话</view>
+      <view class="item" wx:if="{{!isEdit}}">{{phonenumber}}</view>
+      <input class="item" wx:if="{{isEdit}}" model:value="{{Enumber}}" placeholder="请输入联系电话"/>
+    </view>
+    <view class="item-line">
+      <view class="name">性别</view>
+      <view class="item" wx:if="{{!isEdit}}">{{gender}}</view>
+      <view class="item" wx:if="{{isEdit}}">
+        <radio-group bindchange="radioChange">
+          <radio value="男" checked />男
+          <radio value="女" />女
+        </radio-group>
+      </view>
+    </view>
+    <button type="primary" wx:if="{{isEdit}}" bindtap="save">保存</button>
+  </view>
+</view>

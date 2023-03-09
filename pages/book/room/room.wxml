@@ -1,0 +1,36 @@
+<view class="container container1">
+  <image src="{{imgurl}}" class="slide-image"></image>
+  <view class="info">
+    <view class="left">
+      <view class="left_name">{{name}}</view>
+    </view>
+    <view class="right">
+      <view class="right_price">¥ {{price}}</view>
+    </view>
+  </view>
+  <view class="hotel_bq">
+    <view class="clean">
+      <view class="clean_left inlineblock">推荐<span class="spaninfo">{{is_tj == 1 ? "是" : "否"}}</span></view>
+      <view class="clean_right inlineblock">营业<span class="spaninfo">{{is_work == 1 ? "是" : "否"}}</span></view>
+    </view>
+    <view class="clean">
+      <view class="clean_left inlineblock">wifi<span class="spaninfo">{{is_wifi == 1 ? "有" : "否"}}</span></view>
+      <view class="clean_right inlineblock">窗户<span class="spaninfo">{{is_window == 1 ? "有" : "否"}}</span></view>
+    </view>
+    <view class="clean">
+      <view class="clean_left inlineblock">面积<span class="spaninfo">{{area}}㎡</span></view>
+    </view>
+    <view class="clean">
+      <view class="clean_right inlineblock">可住人数<span class="spaninfo">{{live}}</span></view>
+    </view>
+    <view class="clean">
+      <view class="clean_left inlineblock">房间总数<span class="spaninfo">{{num}}</span></view>
+    </view>
+  </view>
+  <view class="description">
+    <view class="clean_left">客房描述 : <span class="des_info">{{description}}</span></view>
+  </view>
+  <view class="enblock" bindtap="toOrder">
+    立即预订
+  </view>
+</view>

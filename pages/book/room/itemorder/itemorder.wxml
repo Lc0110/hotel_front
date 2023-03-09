@@ -1,0 +1,35 @@
+<!--pages/book/room/itemorder/itemorder.wxml-->
+<view class="container container1">
+  <view class="gst-info">
+    <image src="{{imgurl}}" mode="widthFix" />
+    <view class="name">{{name}}</view>
+  </view>
+    <!-- 时间选择 -->
+    <view class="predetail">
+      <view class="pre_input">
+        <picker mode="date" name="kdate" value="{{in_time}}" start="2017-07-01" end="2040-09-01" bindchange="bindInDateChange">
+          <view class="section__title">入住时间:<text>{{in_time}}</text></view>
+        </picker>
+      </view>
+    </view>
+    <!-- 时间选择 -->
+    <view class="predetail">
+      <view class="pre_input">
+        <picker mode="date" name="jdate" value="{{out_time}}" start="2017-07-01" end="2040-09-01" bindchange="bindOutDateChange">
+          <view class="section__title">退房时间:<text>{{out_time}}</text></view>
+        </picker>
+      </view>
+    </view>
+    <view class="predetail">
+      <view class="pre_input">
+        <textarea model:value="{{note}}" placeholder="请输入备注" />
+      </view>
+    </view>
+    <view class="tx">
+      温馨提醒：订单一经预订，不可取消或变更，如未能按约入住，您的预约房费将不予退还
+    </view>
+    <view class="bottom">
+      <view class="price">¥ {{price}}</view>
+      <button class="order" type="primary" bindtap="placeOrder">下单</button>
+    </view>
+</view>

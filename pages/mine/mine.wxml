@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="profile-info">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+    <view class="info">
+      <text class="name">欢迎用户: {{nickName}} 来到小程序</text>
+      <button size="mini" class="button">会员</button>
+    </view>
+  </view>
+
+  <view class="user-menu">
+    <view class="item">
+      <view class="a" bindtap="toMyInfo">
+        <text class="icon info"></text>
+        <text class="txt">我的信息</text>
+      </view>
+    </view>
+    <view class="item">
+      <view class="a" bindtap="toMyOrder">
+        <text class="icon order"></text>
+        <text class="txt">我的订单</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="logout" bindtap="exitLogin">退出登录</view>
+</view>

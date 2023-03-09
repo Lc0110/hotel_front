@@ -1,0 +1,11 @@
+/* pages/mine/order/evaluation/evaluation.wxss */
+.head{
+  border-top: 1px solid rgb(105, 105, 105);
+}
+.eva{
+  margin: 10px;
+}
+
+.save{
+  margin: 20px 0;
+}

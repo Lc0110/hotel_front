@@ -1,0 +1,29 @@
+<view class="container">
+  <!--全部分类  -->
+  <view class="nav_left">
+    <block wx:for="{{classify}}" wx:key="cfy_id">
+      <view class="nav_left_items {{item.cfy_id === currentIndex ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.cfy_id}}">{{item.name}}</view>
+    </block>
+  </view>
+  <!--全部房型-->
+  <view class="nav_right">
+      <block wx:for="{{rooms}}" wx:key="gst_id">
+        <view class="room" wx:if="{{item.c_id == currentIndex}}" data-id="{{item.gst_id}}" bindtap="go_roomdetail">
+          <view class="room_img">
+            <image src="{{item.imgurl}}"></image>
+          </view>
+          <view class="room_info1">
+            <view class="room_infoname">{{item.name}}</view>
+            <view class="room_infolabel">
+              {{item.is_tj == 1 ? "推荐" : ""}} {{item.is_wifi == 1 ? "无线" : ""}} {{item.is_window == 1 ? "有窗" : ""}}
+            </view>
+          </view>
+          <view class="room_info">
+            <view class="price">{{item.price}}元</view>
+            <button>预订</button>
+          </view>
+        </view>
+      </block>
+    <!-- <view wx:else>暂无数据</view> -->
+  </view>
+</view>

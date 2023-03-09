@@ -1,0 +1,23 @@
+<!--pages/mine/userinfo/userinfo.wxml-->
+<view class="container">
+  <view class="base-info">
+    <view class="item-line">
+      <view class="name">用户名 :</view>
+      <input type="text" placeholder="请输入用户名" model:value="{{username}}"/>
+    </view>
+    <view class="item-line">
+      <view class="name">密码 :</view>
+      <input type="text" placeholder="请输入密码" password model:value="{{password}}"/>
+    </view>
+    <view class="item-line">
+      <view class="name">姓名 :</view>
+      <input type="text" placeholder="请输入姓名" model:value="{{realname}}"/>
+    </view>
+    <view class="item-line">
+      <view class="name">手机号码 :</view>
+      <input type="text" placeholder="请输入手机号码" model:value="{{phonenumber}}"/>
+    </view>
+    <button bindtap="registerTo">注册</button>
+    <button bindtap="ToLogin" class="login" type="primary">去登录</button>
+  </view>
+</view>

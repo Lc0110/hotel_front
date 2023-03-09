@@ -1,0 +1,51 @@
+<wxs module="format">
+  function formatStatus(status) {
+    if (status === 0) {
+      return "待付款"
+    } else if (status === 1) {
+      return "待入住"
+    } else{
+      return "已完成"
+    }
+  }
+  function formatTime(time) {
+    var date = time.slice(0,10);
+    var newtime = time.slice(11,18);
+    return (date + '  ' + newtime);
+  }
+
+  module.exports = {
+    formatStatus: formatStatus,
+    formatTime: formatTime
+  }
+</wxs>
+<view class="container">
+  <view class="orders">
+    <navigator url="../orderDetail/orderDetail?id={{item.ord_id}}" class="order" wx:for="{{orders}}" wx:key="{{item.ord_id}}">
+      <view class="h">
+        <view class="l">订单编号：{{item.ord_id}}</view>
+        <view class="r">{{format.formatStatus(item.status)}}</view>
+      </view>
+      <view class="h">
+        <view class="l">下单时间：{{format.formatTime(item.createAt)}}</view>
+      </view>
+      <view class="goods">
+        <view class="img">
+          <image src="{{item.room.img}}"></image>
+        </view>
+        <view class="info">
+          <text class="name">{{item.room.name}}</text>
+          <text class="number">共{{item.day}}天</text>
+        </view>
+        <view class="status"></view>
+      </view>
+      <view class="b">
+        <view class="l">实付：￥{{item.price}}</view>
+        <view class="r">
+          <button class="pay" data-order-index="{{index}}" catchtap="payOrder" wx:if="{{item.status === 0}}" >去付款</button>
+          <button class="eva" data-order-index="{{index}}" catchtap="evaluateOrder" wx:if="{{item.status === 2}}" >去评价</button>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

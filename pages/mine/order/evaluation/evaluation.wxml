@@ -1,0 +1,6 @@
+<!--pages/mine/order/evaluation/evaluation.wxml-->
+<view class="container">
+  <view class="head"></view>
+  <textarea placeholder="请输入评价内容" class="eva" model:value="{{content}}"></textarea>
+  <button class="save" type="primary" bindtap="save">保存</button>
+</view>

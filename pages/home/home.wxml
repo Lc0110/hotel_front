@@ -1,0 +1,43 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <!--轮播图-->
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="1000" circular="true">
+    <block wx:for="{{swiperItems}}" wx:key="sort">
+      <swiper-item>
+        <image src="{{item.imgurl}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="hotel_introduce">
+    <view class="hotel_name">如家五星级酒店</view>
+    <view class="text">如家酒店是如家酒店集团旗下3大品牌之一。 如家酒店在全国300个城市拥有近2000家酒店。 如家酒店多年获得中国金枕头奖“中国最佳经济型连锁酒店品牌”殊荣。 2014年，如家酒店以4.2亿美元的品牌价值入选中国品牌100强。</view>
+    <view class="hotel_bq">
+      <text class="smallbq">正常营业</text>
+      <text class="smallbq">可寄放行李</text>
+      <text class="smallbq">提供停车服务</text>
+      <text class="smallbq">无线服务</text>
+    </view>
+    <view class="time time1">开业时间：2021年12月28日</view>
+    <view class="hotel_address" bindtap="bindgothere">地址：福建省福州市仓山区胪雷路26号</view>
+    <view class="hotel_phone">订房热线：15980267743</view>
+  </view>
+
+  <!--精选房间-->
+  <view class="rqxm">
+    <view class="title">
+      <text class="font_style xueyuan_top_left"> 精选房间</text>
+      <text class="font_style xueyuan_top_right" bindtap="go_book">更多 ></text>
+    </view>
+    <view class="rqxm_content">
+      <view class="rqxm_list" wx:for="{{rooms}}" data-id="{{item.gst_id}}" bindtap="go_roomdetail">
+        <view class="img">
+          <image src="{{item.imgurl}}"></image>
+        </view>
+        <view class="introduce">
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

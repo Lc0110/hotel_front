@@ -1,0 +1,15 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="base-info">
+    <view class="item-line">
+      <view class="name">用户名 :</view>
+      <input type="text" placeholder="请输入用户名" model:value="{{username}}"/>
+    </view>
+    <view class="item-line">
+      <view class="name">密码 :</view>
+      <input type="text" placeholder="请输入密码" password model:value="{{password}}"/>
+    </view>
+    <button bindtap="Login" type="primary" class="login">登录</button>
+    <button bindtap="Toregister">注册</button>
+  </view>
+</view>

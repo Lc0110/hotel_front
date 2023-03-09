@@ -1,0 +1,15 @@
+/* pages/pay/pay.wxss */
+
+.pay{
+  display: block;
+  margin: 0 auto;
+  width: 600rpx;
+}
+
+.price{
+  text-align: center;
+}
+
+button{
+  margin: 50rpx 0;
+}

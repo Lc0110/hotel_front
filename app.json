@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/register/register",
+    "pages/home/home",
+    "pages/index/index",
+    "pages/book/book",
+    "pages/mine/mine",
+    "pages/book/room/room",
+    "pages/mine/order/order",
+    "pages/mine/userinfo/userinfo",
+    "pages/authorize/authorize",
+    "pages/book/room/itemorder/itemorder",
+    "pages/pay/pay",
+    "pages/mine/order/evaluation/evaluation"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "酒店",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home1.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "text": "预订",
+        "iconPath": "images/book.png",
+        "selectedIconPath": "images/book1.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine1.png"
+      }
+    ],
+    "color": "#bfbfbf",
+    "selectedColor": "#fe3131",
+    "backgroundColor": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
