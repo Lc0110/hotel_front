@@ -28,7 +28,21 @@
     </view>
   </view>
   <view class="description">
-    <view class="clean_left">客房描述 : <span class="des_info">{{description}}</span></view>
+    <view class="clean_left">客房描述 : </view>
+    <span class="des_info">{{description}}</span>
+  </view>
+  <view class="evaluation">
+    <view class="clean_left">评价 : </view>
+    <block wx:for="{{evas}}" wx:key="g_id">
+      <view class="user">
+        <image src="{{item.avatarurl}}" class="ava" />
+        <view class="right">
+          <view class="username">{{item.nickname}}</view>
+          <view class="time">{{item.createAt}}</view>
+        </view>
+      </view>
+      <view class="content">{{item.content}}</view>
+    </block>
   </view>
   <view class="enblock" bindtap="toOrder">
     立即预订

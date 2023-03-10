@@ -28,7 +28,9 @@ Page({
       phonenumber: this.data.phonenumber,
     }
     register(data).then(res => {
+      console.log(res);
       if (res.message === "创建成功！") {
+
         wx.showToast({
           title: '注册成功',
         })
@@ -37,19 +39,29 @@ Page({
             url: '/pages/login/login',
           })
         }, 1000);
+      } else if (res.code === -1001) {
+        wx.showToast({
+          title: '请输入完整信息',
+          icon: 'error'
+        })
+      } else if (res.code === -1006) {
+        wx.showToast({
+          title: '该用户名已存在',
+          icon: 'error'
+        })
       } else {
         wx.showToast({
           title: '注册失败',
           icon: "error"
         })
-        this.setData({
-          avatarUrl: "",
-          username: "",
-          password: "",
-          realname: "",
-          phonenumber: "",
-        })
       }
+      this.setData({
+        avatarUrl: "",
+        username: "",
+        password: "",
+        realname: "",
+        phonenumber: "",
+      })
     })
   },
   /**
@@ -60,7 +72,7 @@ Page({
   registerTo() {
     this.goLogin()
   },
-  ToLogin(){
+  ToLogin() {
     wx.navigateTo({
       url: '/pages/login/login',
     })

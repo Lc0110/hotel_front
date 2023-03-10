@@ -33,17 +33,28 @@ Page({
       content: this.data.content,
     }
     createEvaluation(data).then(res => {
+      console.log(res);
       if (res.message === "创建成功！") {
         let data1 = {
           ord_id: this.data.ord_id,
           status: 4
         }
         changeStatus(data1).then(res => {
-          if(res.message === "修改成功"){
-            wx.navigateBack();
+          if(res.message === "修改成功！"){
+            wx.showToast({
+              title: '评价成功！',
+            })     
           }
         })
+      }else{
+        wx.showToast({
+          title: '评价失败！',
+          icon : 'error',
+        })
       }
+      setTimeout(() => {
+        wx.navigateBack();
+      }, 1000);
     })
   },
   /**

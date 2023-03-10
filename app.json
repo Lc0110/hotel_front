@@ -9,7 +9,6 @@
     "pages/book/room/room",
     "pages/mine/order/order",
     "pages/mine/userinfo/userinfo",
-    "pages/authorize/authorize",
     "pages/book/room/itemorder/itemorder",
     "pages/pay/pay",
     "pages/mine/order/evaluation/evaluation"

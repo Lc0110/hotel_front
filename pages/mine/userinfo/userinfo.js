@@ -55,7 +55,6 @@ Page({
       Egender:e.detail.value,
     })
   },
-
   save(){
     let data ={
       mem_id: wx.getStorageSync('mem_id'),
@@ -65,15 +64,24 @@ Page({
       gender: this.data.Egender
     }
     editUser(data).then(res=>{
+      console.log(res);
       if(res.message === "修改成功！"){
-        this.setData({
-          isEdit: !this.data.isEdit,
-          Ename: "",
-          Egender: "",
-          Enumber:""
+        wx.showToast({
+          title: '修改成功!',
+        })  
+      }else{
+        wx.showToast({
+          title: '请输入完整信息!',
+          icon: 'error'
         })
-        this.onLoad()
       }
+      this.setData({
+        isEdit: !this.data.isEdit,
+        Ename: "",
+        Egender: "",
+        Enumber:""
+      })
+      this.onLoad()
     })
   },
 

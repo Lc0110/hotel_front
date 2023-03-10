@@ -1,16 +1,18 @@
 // pages/book/roomdetail/room.js
 var app = getApp();
 import {
-  getEva,
+  searchEva,
   searchGuest
 } from "../../../services/room"
+
+import {getTimeStrByStamp } from "../../../utils/util"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    gst_id:"",
+    gst_id: "",
     imgurl: "",
     price: "",
     name: "",
@@ -30,7 +32,7 @@ Page({
    */
   onLoad: function (options) {
     this.getGuest(options.id)
-    this.getEva()
+    this.getEva(options.id)
   },
 
   getGuest(id) {
@@ -71,14 +73,15 @@ Page({
     })
   },
 
-  getEva() {
+  getEva(id) {
     let data = {
-      content: "",
-      size: 100,
-      offset: 0
+      g_id: id
     }
-    getEva(data).then(res => {
-      if (res.message === "获取成功！") {
+    searchEva(data).then(res => {
+      if (res.message === "查询成功！") {
+        res.data.forEach(item => {
+          item.createAt = getTimeStrByStamp(item.createAt)
+        })
         this.setData({
           evas: res.data
         })
@@ -86,11 +89,13 @@ Page({
     })
   },
 
-  toOrder(){
+  toOrder() {
     wx.navigateTo({
       url: `/pages/book/room/itemorder/itemorder?gst_id=${this.data.gst_id}&imgurl=${this.data.imgurl}&name=${this.data.name}&price=${this.data.price}`,
     })
   },
+
+
   /**
    * 用户点击右上角分享
    */

@@ -18,6 +18,7 @@ Page({
       password: this.data.password,
     }
     login(data).then(res =>{
+      console.log(res);
       if(res.message === "登录成功！"){
         wx.showToast({
           title: '登录成功',
@@ -31,18 +32,31 @@ Page({
             url: '/pages/home/home',
           })
         }, 1000);
+      }else if(res.code === -1001){
+        wx.showToast({
+          title: '请输入完整信息',
+          icon: 'error'
+        })
+      }else if(res.code === -1003){
+        wx.showToast({
+          title: '不存在该用户',
+          icon: 'error'
+        })
+      }else if(res.code === -1004){
+        wx.showToast({
+          title: '密码错误',
+          icon: 'error'
+        })
       }else{
         wx.showToast({
           title: '登录失败',
           icon: 'error'
         })
-        this.setData({
-          username:"",
-          password: ""
-        })
       }
-    }).catch(err => {
-      console.log(err);
+      this.setData({
+        username:"",
+        password: ""
+      })
     })
   },
   Toregister() {

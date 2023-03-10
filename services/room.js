@@ -20,3 +20,11 @@ export function getClassify(data) {
     data,
   })
 }
+
+export function searchEva(data) {
+  return hyRequest.post({
+    url: "/eva/searchbyguest",
+    data,
+  })
+}
+

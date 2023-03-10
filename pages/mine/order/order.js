@@ -1,6 +1,7 @@
 // pages/mine/order/order.js
 import {
-  getOrderListByid
+  getOrderListByid,
+  changeStatus
 } from "../../../services/order"
 Page({
 
@@ -31,18 +32,32 @@ Page({
     })
   },
 
-  payOrder(e){
+  payOrder(e) {
     const id = e.currentTarget.dataset.orderIndex;
     wx.navigateTo({
       url: `/pages/pay/pay?price=${this.data.orders[id].price}&ord_id=${this.data.orders[id].ord_id}`,
     })
   },
 
-  evaluateOrder(e){
+  evaluateOrder(e) {
     const id = e.currentTarget.dataset.orderIndex;
     wx.navigateTo({
       url: `/pages/mine/order/evaluation/evaluation?ord_id=${this.data.orders[id].ord_id}&g_id=${this.data.orders[id].g_id}`,
     })
+  },
+  live(e) {
+    const id = e.currentTarget.dataset.orderIndex;
+    let data = {
+      ord_id: this.data.orders[id].ord_id,
+      status: 2
+    }
+    changeStatus(data).then(res => {
+      console.log(res);
+      if (res.message === "修改成功") {
+        console.log("入住成功");
+      }
+    })
+    this.onLoad()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

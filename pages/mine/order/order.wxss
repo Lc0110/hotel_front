@@ -117,3 +117,15 @@
   color: #fff;
   background: #02b62f;
 }
+
+.order .b .live{
+  margin-top: 19rpx;
+  height: 64.5rpx;
+  line-height: 64.5rpx;
+  text-align: center;
+  padding: 0 20rpx;
+  border-radius: 5rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background: #1c18ff;
+}
