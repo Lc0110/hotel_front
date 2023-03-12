@@ -4,7 +4,9 @@
       return "待付款"
     } else if (status === 1) {
       return "待入住"
-    } else {
+    } else if(status ===2){
+      return "已入住"
+    }else{
       return "已完成"
     }
   }

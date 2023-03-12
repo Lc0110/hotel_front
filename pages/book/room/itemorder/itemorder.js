@@ -56,6 +56,7 @@ Page({
       status : 0,
       note: this.data.note 
     }
+    
     createOrder(data).then(res=>{
       if(res.message === "创建成功！"){
         let data ={
@@ -75,6 +76,11 @@ Page({
           wx.navigateTo({
             url: `/pages/pay/pay?price=${this.data.price}&ord_id=${this.data.ord_id}`,
           })
+        })
+      }else{
+        wx.showToast({
+          title: '日期有误！',
+          icon: 'error'
         })
       }
     })

@@ -53,11 +53,16 @@ Page({
     }
     changeStatus(data).then(res => {
       console.log(res);
-      if (res.message === "修改成功") {
-        console.log("入住成功");
+      if (res.message === "修改成功！") {
+        wx.showToast({
+          title: '入住成功！',
+        })
       }
     })
-    this.onLoad()
+    setTimeout(() => {
+      this.onLoad()   
+    }, 100);
+  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

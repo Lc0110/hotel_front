@@ -17,9 +17,9 @@ Page({
       nickname: this.data.username,
       password: this.data.password,
     }
-    login(data).then(res =>{
+    login(data).then(res => {
       console.log(res);
-      if(res.message === "登录成功！"){
+      if (res.message === "登录成功！") {
         wx.showToast({
           title: '登录成功',
         })
@@ -27,38 +27,40 @@ Page({
         wx.setStorageSync('avatarUrl', res.data[0].avatarurl);
         wx.setStorageSync('mem_id', res.data[0].mem_id);
         wx.setStorageSync('realname', res.data[0].realname);
+        wx.setStorageSync('token', res.data[0].nickname)
         setTimeout(() => {
           wx.switchTab({
             url: '/pages/home/home',
           })
         }, 1000);
-      }else if(res.code === -1001){
+      } else if (res.code === -1001) {
         wx.showToast({
           title: '请输入完整信息',
           icon: 'error'
         })
-      }else if(res.code === -1003){
+      } else if (res.code === -1003) {
         wx.showToast({
           title: '不存在该用户',
           icon: 'error'
         })
-      }else if(res.code === -1004){
+      } else if (res.code === -1004) {
         wx.showToast({
           title: '密码错误',
           icon: 'error'
         })
-      }else{
+      } else {
         wx.showToast({
           title: '登录失败',
           icon: 'error'
         })
       }
       this.setData({
-        username:"",
+        username: "",
         password: ""
       })
     })
   },
+
   Toregister() {
     wx.navigateTo({
       url: '/pages/register/register',
@@ -69,7 +71,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const token = wx.getStorageSync('token')
+    if(token){
+      wx.switchTab({
+        url: '/pages/home/home',
+      })
+    }
   },
 
   /**

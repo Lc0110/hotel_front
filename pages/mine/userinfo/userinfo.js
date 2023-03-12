@@ -14,7 +14,7 @@ Page({
     phonenumber:"",
     Enumber:"",
     gender:"",
-    Egender:"",
+    Egender:"男",
     isEdit: false,
   },
 

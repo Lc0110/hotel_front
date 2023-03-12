@@ -53,7 +53,9 @@ Page({
         })
       }
       setTimeout(() => {
-        wx.navigateBack();
+        wx.reLaunch({
+          url: '/pages/mine/mine',
+        })
       }, 1000);
     })
   },

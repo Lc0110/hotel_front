@@ -10,6 +10,7 @@ Page({
     wx.setStorageSync('nickName', "")
     wx.setStorageSync('avatarUrl', "")
     wx.setStorageSync('mem_id', "")
+    wx.setStorageSync('token', "")
     wx.reLaunch({
       url: '/pages/login/login',
     })

@@ -38,14 +38,16 @@ Page({
             console.log(res);
           })
           wx.reLaunch({
-            url: '/pages/mine/order/order',
+            url: '/pages/mine/mine',
           })
         }
       }
     })
   },
   cancel() {
-    wx.navigateBack();
+    wx.reLaunch({
+      url: '/pages/mine/mine',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
