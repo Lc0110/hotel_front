@@ -2,6 +2,7 @@
 import {
   register
 } from "../../services/register"
+import { hexMD5 } from "../../utils/md5"
 Page({
   /**
    * 页面的初始数据
@@ -13,7 +14,12 @@ Page({
     phonenumber: "",
     userInfo: {},
   },
-  async goLogin() {
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {},
+
+  async registerTo() {
     const profile = await wx.getUserProfile({
       desc: '获取用户头像以及昵称',
     });
@@ -23,9 +29,16 @@ Page({
     let data = {
       avatarUrl: this.data.userInfo.avatarUrl,
       nickname: this.data.username,
-      password: this.data.password,
+      password: hexMD5(this.data.password),
       realname: this.data.realname,
       phonenumber: this.data.phonenumber,
+    }
+    if(data.phonenumber.length !== 11){
+      wx.showToast({
+        title: '手机号码长度为11位！',
+        icon: "none"
+      })
+      return 
     }
     register(data).then(res => {
       console.log(res);
@@ -63,14 +76,6 @@ Page({
         phonenumber: "",
       })
     })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {},
-
-  registerTo() {
-    this.goLogin()
   },
   ToLogin() {
     wx.navigateTo({

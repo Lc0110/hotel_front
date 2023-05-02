@@ -29,7 +29,7 @@
       <text class="font_style xueyuan_top_right" bindtap="go_book">更多 ></text>
     </view>
     <view class="rqxm_content">
-      <view class="rqxm_list" wx:for="{{rooms}}" data-id="{{item.gst_id}}" bindtap="go_roomdetail">
+      <view class="rqxm_list" wx:for="{{rooms}}" wx:key="gst_id" data-id="{{item.gst_id}}" bindtap="go_roomdetail">
         <view class="img">
           <image src="{{item.imgurl}}"></image>
         </view>

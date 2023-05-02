@@ -2,6 +2,7 @@
 import {
   login
 } from "../../services/register"
+import { hexMD5 } from "../../utils/md5"
 Page({
 
   /**
@@ -15,7 +16,7 @@ Page({
   Login() {
     let data = {
       nickname: this.data.username,
-      password: this.data.password,
+      password: hexMD5(this.data.password),
     }
     login(data).then(res => {
       console.log(res);

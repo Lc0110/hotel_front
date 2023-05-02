@@ -129,3 +129,10 @@
   color: #fff;
   background: #1c18ff;
 }
+
+.null{
+  font-size: 40rpx;
+  font-weight: 800;
+  margin-top: 100rpx;
+  text-align: center;
+}

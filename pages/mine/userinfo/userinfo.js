@@ -56,6 +56,13 @@ Page({
     })
   },
   save(){
+    if(this.data.Enumber.length !== 11){
+      wx.showToast({
+        title: '信息格式有误!',
+        icon: 'error'
+      })
+      return  
+    }
     let data ={
       mem_id: wx.getStorageSync('mem_id'),
       nickname: this.data.nickName,

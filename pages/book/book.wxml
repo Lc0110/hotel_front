@@ -16,6 +16,7 @@
             <view class="room_infoname">{{item.name}}</view>
             <view class="room_infolabel">
               {{item.is_tj == 1 ? "推荐" : ""}} {{item.is_wifi == 1 ? "无线" : ""}} {{item.is_window == 1 ? "有窗" : ""}}
+              {{item.is_kt == 1 ? "空调" : ""}}
             </view>
           </view>
           <view class="room_info">

@@ -5,6 +5,8 @@ import {
 import {
   changeStatus
 } from "../../../../services/order"
+
+var sensitiveWords = ["敏感词1", "敏感词2", "敏感词3"];
 Page({
 
   /**
@@ -27,6 +29,14 @@ Page({
   },
 
   save() {
+    const res = this.filterSensitiveWords(this.data.content);
+    if(res){
+      wx.showToast({
+        title: '评价内容含有敏感词，请修改！',
+        icon: 'none'
+      })
+      return
+    }  
     let data = {
       m_id: wx.getStorageSync('mem_id'),
       g_id: this.data.g_id,
@@ -40,16 +50,16 @@ Page({
           status: 4
         }
         changeStatus(data1).then(res => {
-          if(res.message === "修改成功！"){
+          if (res.message === "修改成功！") {
             wx.showToast({
               title: '评价成功！',
-            })     
+            })
           }
         })
-      }else{
+      } else {
         wx.showToast({
           title: '评价失败！',
-          icon : 'error',
+          icon: 'error',
         })
       }
       setTimeout(() => {
@@ -59,6 +69,17 @@ Page({
       }, 1000);
     })
   },
+
+
+  filterSensitiveWords(text) {
+    var pattern = new RegExp(sensitiveWords.join('|'), 'g');
+    if (pattern.test(text)) {
+      return true;
+    }else{
+      return false;
+    }
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
