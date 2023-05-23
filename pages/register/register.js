@@ -33,6 +33,13 @@ Page({
       realname: this.data.realname,
       phonenumber: this.data.phonenumber,
     }
+    if(!data.nickname || !data.password || !data.realname || !data.phonenumber){
+      wx.showToast({
+        title: '信息输入不完整！',
+        icon: "none"
+      })
+      return 
+    }
     if(data.phonenumber.length !== 11){
       wx.showToast({
         title: '手机号码长度为11位！',

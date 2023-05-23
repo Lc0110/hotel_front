@@ -18,6 +18,13 @@ Page({
       nickname: this.data.username,
       password: hexMD5(this.data.password),
     }
+    if(!data.nickname || !data.password){
+      wx.showToast({
+        title: '信息输入不完整！',
+        icon: "none"
+      })
+      return 
+    }
     login(data).then(res => {
       console.log(res);
       if (res.message === "登录成功！") {

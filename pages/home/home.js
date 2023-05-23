@@ -40,10 +40,13 @@ Page({
     }
     getRooms(data).then(res=>{
       if(res.message === "获取成功！"){
-        this.setData({
-          rooms : res.data
+        const roomdata = res.data.filter(item =>{
+          return item.num >0
         })
-        wx.setStorageSync('rooms', res.data)
+        this.setData({
+          rooms : roomdata
+        })
+        wx.setStorageSync('rooms', roomdata)
       }
     })
   },
